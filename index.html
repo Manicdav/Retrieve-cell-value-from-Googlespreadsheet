@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script type='text/javascript'>
+        window.onpageshow = function () {
+            google.load('visualization', '1', {
+                callback: function () {
+                    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1sA7M5kG6Xo8YScD1Df38PIA_G0bvhGRdqoExXg0KJTs/gviz/tq?tqx=out:html&tq?gid=0&headers=0&range=A1:C');
+                    query.send(displayData);
+                }
+            });
+
+            function displayData(response) {
+                numval = response.getDataTable().getValue(0,0);
+                document.getElementById('data').innerHTML = numval;
+            }
+        }
+    </script>  
+</head>
+<body>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <div id="data"></div>
+</body>
+</html>
